@@ -1,2 +1,3 @@
 # pypika-postgis
-PostGIS extension for PyPika 
+
+PostGIS extension for PyPika
