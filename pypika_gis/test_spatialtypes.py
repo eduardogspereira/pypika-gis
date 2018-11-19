@@ -106,6 +106,11 @@ def test_Point():
     assert(str(query)) == "ST_Point(10,20)"
 
 
+def test_SetSRID():
+    query = st.SetSRID("geom", 4326)
+    assert(str(query)) == "ST_SetSRID('geom',4326)"
+
+
 def test_Within():
     query = st.Within("geomA", "geomB")
     assert(str(query)) == "ST_Within('geomA','geomB')"
@@ -124,8 +129,3 @@ def test_Y():
 def test_Z():
     query = st.Z("geom")
     assert(str(query)) == "ST_Z('geom')"
-
-
-def test_SRID():
-    query = st.SRID("geom", 4326)
-    assert(str(query)) == "ST_SRID('geom',4326)"

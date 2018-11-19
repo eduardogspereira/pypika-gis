@@ -19,7 +19,20 @@ print(str(query))
 
 ## Available functions
 
-Check this list.
+- Envelope(ST_Envelope)
+- Extent(ST_Extent)
+- GeomFromGeoJSON(ST_GeomFromGeoJSON)
+- GeoHash(ST_GeoHash)
+- Intersection(ST_Intersection)
+- Intersects(ST_Intersects)
+- IsEmpty(ST_IsEmpty)
+- IsValid(ST_IsValid)
+- MakePoint(ST_MakePoint)
+- SetSRID(ST_SetSRID)
+- Within(ST_Within)
+- X(ST_X)
+- Y(ST_Y)
+- Z(ST_Z)
 
 ## Dependencies
 

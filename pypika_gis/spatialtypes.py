@@ -116,6 +116,12 @@ class Point(Function):
         super(Point, self).__init__('ST_Point', lng, lat, alias=alias)
 
 
+class SetSRID(Function):
+    def __init__(self, geometry, epsg, alias=None):
+        super(SetSRID, self).__init__(
+            'ST_SetSRID', geometry, epsg, alias=alias)
+
+
 class Within(Function):
     def __init__(self, geometryA, geometryB, alias=None):
         super(Within, self).__init__(
@@ -135,9 +141,3 @@ class Y(Function):
 class Z(Function):
     def __init__(self, term, alias=None):
         super(Z, self).__init__('ST_Z', term, alias=alias)
-
-
-class SRID(Function):
-    def __init__(self, geometry, epsg, alias=None):
-        super(SRID, self).__init__(
-            'ST_SRID', geometry, epsg, alias=alias)

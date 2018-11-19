@@ -5,7 +5,7 @@ with open('requirements.txt') as f:
 
 setuptools.setup(
     name="pypika-gis",
-    version="1.0.0",
+    version="1.1.0",
     author="Eduardo G. S. Pereira",
     author_email="edu_vcd@hotmail.com",
     description="SpatialTypes functions for extend PyPika with GIS",
