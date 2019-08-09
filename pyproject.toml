@@ -9,7 +9,7 @@ authors = ["Eduardo G. S. Pereira <edu_vcd@hotmail.com>"]
 
 [tool.poetry.dependencies]
 python = "*"
-PyPika = "^0.26.0"
+PyPika = "^0.31.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^3.6.3"

@@ -2,6 +2,12 @@
 
 SpatialTypes functions for extend [PyPika](https://github.com/kayak/pypika) with GIS.
 
+## Install
+
+```bash
+pip install pypika-gis
+```
+
 ## Example
 
 ```python
@@ -34,17 +40,20 @@ print(str(query))
 - Y(ST_Y)
 - Z(ST_Z)
 
+### Development
+
 ## Dependencies
 
-- [PyPika](https://github.com/kayak/pypika)
+- [Python](https://www.python.org/downloads/)
+- [poetry](https://poetry.eustace.io/)
 
 ## Setup
 
 ```bash
-pip install pypika-gis
+poetry install
 ```
 
-## Development
+## Tests
 
 Full tests and coverage
 
