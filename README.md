@@ -40,20 +40,20 @@ print(str(query))
 - Y(ST_Y)
 - Z(ST_Z)
 
-### Development
+## Development
 
-## Dependencies
+### Dependencies
 
 - [Python](https://www.python.org/downloads/)
 - [poetry](https://poetry.eustace.io/)
 
-## Setup
+### Setup
 
 ```bash
 poetry install
 ```
 
-## Tests
+### Tests
 
 Full tests and coverage
 
