@@ -58,8 +58,7 @@ poetry install
 Full tests and coverage
 
 ```bash
-pip install -r requirements-dev.txt
-python -m pytest --cov
+poetry run pytest
 ```
 
 ## Credits

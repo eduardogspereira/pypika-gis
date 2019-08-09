@@ -1,4 +1,4 @@
-import spatialtypes as st
+import pypika_gis.spatialtypes as st
 
 
 def test_Area():
