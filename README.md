@@ -18,7 +18,7 @@ query = Query.from_('field').select('id', st.AsGeoJSON('geom'))
 print(str(query))
 # SELECT "id",ST_AsGeoJSON('geom') FROM "field"
 
-query = Query.from_('crop').select('id').where(st.Intersects('geom', st.SRID(st.MakePoint(10, 5), 4326)))
+query = Query.from_('crop').select('id').where(st.Intersects('geom', st.SetSRID(st.MakePoint(10, 5), 4326)))
 print(str(query))
 # SELECT "id" FROM "crop" WHERE ST_Intersects('geom',ST_SRID(ST_MakePoint(10,5),4326))
 ```
@@ -59,6 +59,13 @@ Full tests and coverage
 
 ```bash
 poetry run pytest
+```
+
+### Publish
+
+```bash
+poetry build
+poetry publish
 ```
 
 ## Credits

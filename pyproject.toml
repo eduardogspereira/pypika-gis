@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pypika-gis"
-version = "1.2.0"
+version = "1.2.3"
 description = "SpatialTypes functions for extend PyPika with GIS"
 readme = "README.md"
 keywords = ["pypika", "gis", "postgis", "sql", "builder"]
@@ -8,8 +8,8 @@ repository="https://github.com/eduardogspereira/pypika-gis"
 authors = ["Eduardo G. S. Pereira <edu_vcd@hotmail.com>"]
 
 [tool.poetry.dependencies]
-python = "*"
-PyPika = "^0.31.1"
+python = "3.*"
+PyPika = "0.*"
 
 [tool.poetry.dev-dependencies]
 pytest = "^3.6.3"
