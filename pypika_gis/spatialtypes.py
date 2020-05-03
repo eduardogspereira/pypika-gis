@@ -1,143 +1,105 @@
-from pypika.terms import (
-    AggregateFunction,
-    Function
-)
+from pypika.terms import Function
 
 
-class Area(Function):
-    def __init__(self, term, alias=None):
-        super(Area, self).__init__('ST_Area', term, alias=alias)
+def Area(term):
+    return Function("ST_Area", term)
 
 
-class AsBinary(Function):
-    def __init__(self, term, alias=None):
-        super(AsBinary, self).__init__('ST_AsBinary', term, alias=alias)
+def AsBinary(term):
+    return Function("ST_AsBinary", term)
 
 
-class AsGeoJSON(Function):
-    def __init__(self, term, alias=None):
-        super(AsGeoJSON, self).__init__('ST_AsGeoJSON', term, alias=alias)
+def AsGeoJSON(term):
+    return Function("ST_AsGeoJSON", term)
 
 
-class AsMVT(Function):
-    def __init__(self, term, alias=None):
-        super(AsMVT, self).__init__('ST_AsMVT', term, alias=alias)
+def AsMVT(term):
+    return Function("ST_AsMVT", term)
 
 
-class AsText(Function):
-    def __init__(self, term, alias=None):
-        super(AsText, self).__init__('ST_AsText', term, alias=alias)
+def AsText(term):
+    return Function("ST_AsText", term)
 
 
-class Buffer(Function):
-    def __init__(self, term, length, alias=None):
-        super(Buffer, self).__init__('ST_Buffer', term, length, alias=alias)
+def Buffer(term, length):
+    return Function("ST_Buffer", term, length)
 
 
-class Centroid(Function):
-    def __init__(self, term, alias=None):
-        super(Centroid, self).__init__('ST_Centroid', term, alias=alias)
+def Centroid(term):
+    return Function("ST_Centroid", term)
 
 
-class Contains(Function):
-    def __init__(self, geometryA, geometryB, alias=None):
-        super(Contains, self).__init__(
-            'ST_Contains', geometryA, geometryB, alias=alias)
+def Contains(geomA, geomB):
+    return Function("ST_Contains", geomA, geomB)
 
 
-class Difference(Function):
-    def __init__(self, geometryA, geometryB, alias=None):
-        super(Difference, self).__init__(
-            'ST_Difference', geometryA, geometryB, alias=alias)
+def Difference(geomA, geomB):
+    return Function("ST_Difference", geomA, geomB)
 
 
-class Disjoint(Function):
-    def __init__(self, geometryA, geometryB, alias=None):
-        super(Disjoint, self).__init__(
-            'ST_Disjoint', geometryA, geometryB, alias=alias)
+def Disjoint(geomA, geomB):
+    return Function("ST_Disjoint", geomA, geomB)
 
 
-class Distance(Function):
-    def __init__(self, geometryA, geometryB, alias=None):
-        super(Distance, self).__init__(
-            'ST_Distance', geometryA, geometryB, alias=alias)
+def Distance(geomA, geomB):
+    return Function("ST_Distance", geomA, geomB)
 
 
-class Envelope(Function):
-    def __init__(self, term, alias=None):
-        super(Envelope, self).__init__('ST_Envelope', term, alias=alias)
+def Envelope(term):
+    return Function("ST_Envelope", term)
 
 
-class Extent(AggregateFunction):
-    def __init__(self, term, alias=None):
-        super(Extent, self).__init__('ST_Extent', term, alias=alias)
+def Extent(term):
+    return Function("ST_Extent", term)
 
 
-class GeomFromGeoJSON(Function):
-    def __init__(self, geometry, alias=None):
-        super(GeomFromGeoJSON, self).__init__(
-            'ST_GeomFromGeoJSON', geometry, alias=alias)
+def GeomFromGeoJSON(term):
+    return Function("ST_GeomFromGeoJSON", term)
 
 
-class GeoHash(Function):
-    def __init__(self, geometry, alias=None):
-        super(GeoHash, self).__init__('ST_GeoHash', geometry, alias=alias)
+def GeoHash(term):
+    return Function("ST_GeoHash", term)
 
 
-class Intersection(Function):
-    def __init__(self, geometryA, geometryB, alias=None):
-        super(Intersection, self).__init__(
-            'ST_Intersection', geometryA, geometryB, alias=alias)
+def Intersection(geomA, geomB):
+    return Function("ST_Intersection", geomA, geomB)
 
 
-class Intersects(Function):
-    def __init__(self, geometryA, geometryB, alias=None):
-        super(Intersects, self).__init__(
-            'ST_Intersects', geometryA, geometryB, alias=alias)
+def Intersects(geomA, geomB):
+    return Function("ST_Intersects", geomA, geomB)
 
 
-class IsEmpty(Function):
-    def __init__(self, term, alias=None):
-        super(IsEmpty, self).__init__('ST_IsEmpty', term, alias=alias)
+def IsEmpty(term):
+    return Function("ST_IsEmpty", term)
 
 
-class IsValid(Function):
-    def __init__(self, term, alias=None):
-        super(IsValid, self).__init__('ST_IsValid', term, alias=alias)
+def IsValid(term):
+    return Function("ST_IsValid", term)
 
 
-class MakePoint(Function):
-    def __init__(self, lng, lat, alias=None):
-        super(MakePoint, self).__init__('ST_MakePoint', lng, lat, alias=alias)
+def MakePoint(latA, latB):
+    return Function("ST_MakePoint", latA, latB)
 
 
-class Point(Function):
-    def __init__(self, lng, lat, alias=None):
-        super(Point, self).__init__('ST_Point', lng, lat, alias=alias)
+def Point(latA, latB):
+    return Function("ST_Point", latA, latB)
 
 
-class SetSRID(Function):
-    def __init__(self, geometry, epsg, alias=None):
-        super(SetSRID, self).__init__(
-            'ST_SetSRID', geometry, epsg, alias=alias)
+def SetSRID(geom, epsg):
+    return Function("ST_SetSRID", geom, epsg)
 
 
-class Within(Function):
-    def __init__(self, geometryA, geometryB, alias=None):
-        super(Within, self).__init__(
-            'ST_Within', geometryA, geometryB, alias=alias)
+def Within(geomA, geomB):
+    return Function("ST_Within", geomA, geomB)
 
 
-class X(Function):
-    def __init__(self, term, alias=None):
-        super(X, self).__init__('ST_X', term, alias=alias)
+def X(term):
+    return Function("ST_X", term)
 
 
-class Y(Function):
-    def __init__(self, term, alias=None):
-        super(Y, self).__init__('ST_Y', term, alias=alias)
+def Y(term):
+    return Function("ST_Y", term)
 
 
-class Z(Function):
-    def __init__(self, term, alias=None):
-        super(Z, self).__init__('ST_Z', term, alias=alias)
+def Z(term):
+    return Function("ST_Z", term)
