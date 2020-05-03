@@ -81,12 +81,12 @@ def IsValid(term):
     return Function("ST_IsValid", term)
 
 
-def MakePoint(latA, latB):
-    return Function("ST_MakePoint", latA, latB)
+def MakePoint(long, lat):
+    return Function("ST_MakePoint", long, lat)
 
 
-def Point(latA, latB):
-    return Function("ST_Point", latA, latB)
+def Point(long, lat):
+    return Function("ST_Point", long, lat)
 
 
 def SetSRID(geom, epsg):
