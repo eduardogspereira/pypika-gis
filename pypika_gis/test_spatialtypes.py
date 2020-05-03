@@ -76,6 +76,26 @@ def test_GeogPoint():
     assert (str(query)) == "ST_GeogPoint(10,10)"
 
 
+def test_GeogFromGeoJSON():
+    query = st.GeogFromGeoJSON("{}")
+    assert (str(query)) == "ST_GeogFromGeoJSON('{}')"
+
+
+def test_GeogFromText():
+    query = st.GeogFromText("Polygon((0 0, 0 2, 2 2, 2 0, 0 0))")
+    assert (str(query)) == "ST_GeogFromText('Polygon((0 0, 0 2, 2 2, 2 0, 0 0))')"
+
+
+def test_GeogFromWKB():
+    query = st.GeogFromWKB("{}")
+    assert (str(query)) == "ST_GeogFromWKB('{}')"
+
+
+def test_GeogPointFromGeoHash():
+    query = st.GeogPointFromGeoHash("6GZ765HX0128")
+    assert (str(query)) == "ST_GeogPointFromGeoHash('6GZ765HX0128')"
+
+
 def test_GeoHash():
     query = st.GeoHash("geom")
     assert (str(query)) == "ST_GeoHash('geom')"
@@ -106,9 +126,39 @@ def test_MakePoint():
     assert (str(query)) == "ST_MakePoint(10,20)"
 
 
+def test_MakeLine():
+    query = st.MakeLine(st.MakePoint(10, 10), "geom2")
+    assert (str(query)) == "ST_MakeLine(ST_MakePoint(10,10),'geom2')"
+
+
+def test_MakePolygon():
+    query = st.MakePolygon(
+        "LINESTRING(75.15 29.53 1,77 29 1,77.6 29.5 1, 75.15 29.53 1)"
+    )
+    assert (
+        (str(query))
+        == "ST_MakePolygon('LINESTRING(75.15 29.53 1,77 29 1,77.6 29.5 1, 75.15 29.53 1)')"
+    )
+
+
+def test_Union():
+    query = st.Union("geomA", "geomB")
+    assert (str(query)) == "ST_Union('geomA','geomB')"
+
+
+def test_Boundary():
+    query = st.Boundary("geom")
+    assert (str(query)) == "ST_Boundary('geom')"
+
+
 def test_Point():
     query = st.Point(10, 20)
     assert (str(query)) == "ST_Point(10,20)"
+
+
+def test_DWithin():
+    query = st.DWithin("geomA", "geomB", 10)
+    assert (str(query)) == "ST_DWithin('geomA','geomB',10,false)"
 
 
 def test_SetSRID():
