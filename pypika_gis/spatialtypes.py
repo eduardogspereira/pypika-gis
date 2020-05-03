@@ -57,6 +57,10 @@ def GeomFromGeoJSON(term):
     return Function("ST_GeomFromGeoJSON", term)
 
 
+def GeogPoint(long, lat):
+    return Function("ST_GeogPoint", long, lat)
+
+
 def GeoHash(term):
     return Function("ST_GeoHash", term)
 

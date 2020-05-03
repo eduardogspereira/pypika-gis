@@ -71,6 +71,11 @@ def test_GeomFromGeoJSON():
     assert (str(query)) == "ST_GeomFromGeoJSON({'geometry': {}})"
 
 
+def test_GeogPoint():
+    query = st.GeogPoint(10, 10)
+    assert (str(query)) == "ST_GeogPoint(10,10)"
+
+
 def test_GeoHash():
     query = st.GeoHash("geom")
     assert (str(query)) == "ST_GeoHash('geom')"
