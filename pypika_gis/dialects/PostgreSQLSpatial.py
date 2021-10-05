@@ -48,11 +48,14 @@ class SpatialMethods(object):
     def Covers(self, geomA, geomB, *args):
         return Function("ST_Covers", geomA, geomB, *args)
     
+    def Crosses(self, geomA, geomB, *args):
+        return Function("ST_Crosses", geomA, geomB, *args)
+    
     def CurveN(self, curve_index, *args):
         raise NotImplementedError('PostGIS has no ST_CurveN method')
     
-    def CurveToLine(self, geom, *args):
-        return Function("ST_CurveToLine", geom, *args)
+    def CurveToLine(self, geom, tolerance, *args):
+        return Function("ST_CurveToLine", geom, tolerance, *args)
 
     def Difference(self, geomA, geomB, *args):
         return Function("ST_Difference", geomA, geomB, *args)
@@ -86,6 +89,12 @@ class SpatialMethods(object):
 
     def GeoHash(self, term, *args):
         return Function("ST_GeoHash", term, *args)
+    
+    def GeometryN(self, geom, integer, *args):
+        return Function("ST_GeometryN", geom, integer, *args)
+
+    def GeometryType(self, geom, *args):
+        return Function("ST_GeometryType", geom, *args)
 
     def GeogFromGeoJSON(self, term, *args):
         return Function("ST_GeogFromGeoJSON", term, *args)
@@ -108,17 +117,29 @@ class SpatialMethods(object):
     def Length(self, geom, *args):
         return Function("ST_Length", geom, *args)
 
+    def InteriorRingN(self, geom, integer, *args):
+        return Function("ST_InteriorRingN", geom, integer, *args)
+
     def Intersection(self, geomA, geomB, *args):
         return Function("ST_Intersection", geomA, geomB, *args)
 
     def Intersects(self, geomA, geomB, *args):
         return Function("ST_Intersects", geomA, geomB, *args)
 
+    def IsClosed(self, geom, *args):
+        return Function("ST_IsClosed", geom, *args)
+
     def IsCollection(self, term, *args):
         return Function("ST_IsCollection", term, *args)
 
     def IsEmpty(self, term, *args):
         return Function("ST_IsEmpty", term, *args)
+
+    def IsRing(self, term, *args):
+        return Function("ST_IsRing", term, *args)
+
+    def IsSimple(self, term, *args):
+        return Function("ST_IsSimple", term, *args)
 
     def IsValid(self, term, *args):
         return Function("ST_IsValid", term, *args)
@@ -140,9 +161,21 @@ class SpatialMethods(object):
 
     def Point(self, long, lat, *args):
         return Function("ST_Point", long, lat, *args)
+    
+    def PointN(self, geom, integer, *args):
+        return Function("ST_PointN", geom, integer, *args)
+
+    def PointOnSurface(self, geom, *args):
+        return Function("ST_PointOnSurface", geom, *args)
+    
+    def Relate(self, geomA, geomB, *args):
+        return Function("ST_Relate", geomA, geomB, *args)
 
     def SetSRID(self, geom, epsg, *args):
         return Function("ST_SetSRID", geom, epsg, *args)
+
+    def StartPoint(self, geom, *args):
+        return Function("ST_StartPoint", geom, *args)
 
     def Touches(self, geomA, geomB, *args):
         return Function("ST_Touches", geomA, geomB, *args)

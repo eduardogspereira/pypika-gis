@@ -9,140 +9,146 @@ class SpatialMethods(object):
     Defines an MS-SQL (a.k.a. SQL Server) Spatial types/functions
     """
 
-    def Area(self, term, *args):
-        return Function("STArea", term, *args)
+    def Area(self, geom, *args):
+        return Function(f"{geom.get_sql()}.STArea", *args)
 
-    def AsBinary(self, term, *args):
-        return Function("STAsBinary", term, *args)
+    def AsBinary(self, geom, *args):
+        return Function(f"{geom.get_sql()}.STAsBinary", *args)
 
-    def AsGeoJSON(self, term, *args):
-        raise NotImplementedError('MSSQL has no STAsGeoJSON method')
+    def AsText(self, geom, *args):
+        return Function(f"{geom.get_sql()}.STAsText", *args)
 
-    def AsMVT(self, term, *args):
-        raise NotImplementedError('MSSQL has no STAsMVT method')
+    def Boundary(self, geom, *args):
+        return Function(f"{geom.get_sql()}.STBoundary", *args)
 
-    def AsText(self, term, *args):
-        return Function("STAsText", term, *args)
+    def Buffer(self, geom, length, *args):
+        return Function(f"{geom.get_sql()}.STBuffer", length, *args)
 
-    def Boundary(self, term, *args):
-        return Function("STBoundary", term, *args)
+    def Centroid(self, geom, *args):
+        return Function(f"{geom.get_sql()}.STCentroid", *args)
 
-    def Buffer(self, term, length, *args):
-        return Function("STBuffer", term, length, *args)
-
-    def Centroid(self, term, *args):
-        return Function("STCentroid", term, *args)
-    
     def Contains(self, geomA, geomB, *args):
-        return Function("STContains", geomA, geomB, *args)
+        return Function(f"{geomA.get_sql()}.STContains", geomB, *args)
 
-    def ConvexHull(self, term, *args):
-        return Function("STConvexHull", term, *args)
+    def ConvexHull(self, geom, *args):
+        return Function(f"{geom.get_sql()}.STConvexHull", *args)
     
-    def Crosses(self, geom, *args):
-        return Function("STCrosses", geom, *args)
+    def Crosses(self, geomA, geomB, *args):
+        return Function(f"{geomA.get_sql()}.STCrosses", geomB, *args)
 
-    def CurveN(self, curve_index, *args):
-        return Function("STCurveN", curve_index, *args)
+    def CurveN(self, term, curve_index, *args):
+        return Function(f"{term.get_sql()}.STCurveN", curve_index, *args)
     
     def CurveToLine(self, term, *args):
-        return Function("STCurveToLine", term, *args)
+        return Function(f"{term.get_sql()}.STCurveToLine", *args)
 
-    def Difference(self, geom, *args):
-        return Function("STDifference", geom, *args)
+    def Difference(self, geomA, geomB, *args):
+        return Function(f"{geomA.get_sql()}.STDifference", geomB, *args)
 
-    def Dimension(self, term, *args):
-        return Function("STDimension", term, *args)
+    def Dimension(self, geom, *args):
+        return Function(f"{geom.get_sql()}.STDimension", *args)
 
-    def Disjoint(self, geom, *args):
-        return Function("STDisjoint", geom, *args)
+    def Disjoint(self, geomA, geomB, *args):
+        return Function(f"{geomA.get_sql()}.STDisjoint", geomB, *args)
 
-    def Distance(self, geom, *args):
-        return Function("STDistance", geom, *args)
+    def Distance(self, geomA, geomB, *args):
+        return Function(f"{geomA.get_sql()}.STDistance", geomB, *args)
 
-    def EndPoint(self, term, *args):
-        return Function("STEndpoint", term, *args)
+    def EndPoint(self, geom, *args):
+        return Function(f"{geom.get_sql()}.STEndpoint", *args)
 
-    def Envelope(self, term, *args):
-        return Function("STEnvelope", term, *args)
+    def Envelope(self, geom, *args):
+        return Function(f"{geom.get_sql()}.STEnvelope", *args)
 
-    def Equals(self, geom, *args):
-        return Function("STEquals", geom, *args)
+    def Equals(self, geomA, geomB, *args):
+        return Function(f"{geomA.get_sql()}.STEquals", geomB, *args)
 
-    def ExteriorRing(self, term, *args):
-        return Function("STExteriorRing", term, *args)
+    def ExteriorRing(self, geom, *args):
+        return Function(f"{geom.get_sql()}.STExteriorRing", *args)
 
-    def GeogFromGeoJSON(self, term, *args):
-        return Function("STGeogFromGeoJSON", term, *args)
+    def GeometryN(self, geom, value, *args):
+        return Function(f"{geom.get_sql()}.STGeometryN", value, *args)
 
-    def GeogFromText(self, term, *args):
-        return Function("STGeogFromText", term, *args)
+    def GeometryType(self, geom, *args):
+        return Function(f"{geom.get_sql()}.STGeometryType", *args)
 
-    def GeogFromWKB(self, wkb, *args):
-        return Function("STGeogFromWKB", wkb, *args)
+    def GeomFromText(self, text, srid, *args):
+        return Function("geometry::STGeomFromText", text, srid, *args)
 
-    def GeogPoint(self, long, lat, *args):
-        return Function("STGeogPoint", long, lat, *args)
+    def GeomFromWKB(self, wkb, srid, *args):
+        return Function("geometry::STGeomFromWKB", wkb, srid, *args)
 
-    def GeogPointFromGeoHash(self, geohash, *args):
-        return Function("STGeogPointFromGeoHash", geohash, *args)
-
-    def GeomFromGeoJSON(self, term, *args):
-        return Function("STGeomFromGeoJSON", term, *args)
-
-    def Length(self, geom, *args):
-        return Function("STLength", geom, *args)
+    def InteriorRingN(self, geom, value, *args):
+        return Function(f"{geom.get_sql()}.STInteriorRingN", value, *args)
 
     def Intersection(self, geomA, geomB, *args):
-        return Function("STIntersection", geomA, geomB, *args)
+        return Function(f"{geomA.get_sql()}.STIntersection", geomB, *args)
 
     def Intersects(self, geomA, geomB, *args):
-        return Function("STIntersects", geomA, geomB, *args)
+        return Function(f"{geomA.get_sql()}.STIntersects", geomB, *args)
 
-    def IsCollection(self, term, *args):
-        return Function("STIsCollection", term, *args)
+    def IsClosed(self, geom, *args):
+        return Function(f"{geom.get_sql()}.STIsClosed", *args)
 
-    def IsEmpty(self, term, *args):
-        return Function("STIsEmpty", term, *args)
+    def IsEmpty(self, geom, *args):
+        return Function(f"{geom.get_sql()}.STIsEmpty", *args)
 
-    def IsValid(self, term, *args):
-        return Function("STIsValid", term, *args)
+    def IsRing(self, geom, *args):
+        return Function(f"{geom.get_sql()}.STIsRing", *args)
 
-    def MakeLine(self, *args):
-        return Function("STMakeLine", *args)
+    def IsSimple(self, geom, *args):
+        return Function(f"{geom.get_sql()}.STIsSimple", *args)
 
-    def MakePoint(self, long, lat, *args):
-        return Function("STMakePoint", long, lat, *args)
+    def IsValid(self, geom, *args):
+        return Function(f"{geom.get_sql()}.STIsValid", *args)
 
-    def MakePolygon(self, *args):
-        return Function("STMakePolygon", *args)
+    def Length(self, geom, *args):
+        return Function(f"{geom.get_sql()}.STLength", *args)
+
+    def NumCurves(self, geom, *args):
+        return Function(f"{geom.get_sql()}.STNumCurves", *args)
+
+    def NumGeometries(self, geom, *args):
+        return Function(f"{geom.get_sql()}.STNumGeometries", *args)
+    
+    def NumInteriorRing(self, geom, *args):
+        return Function(f"{geom.get_sql()}.STNumInteriorRing", *args)
 
     def NumPoints(self, geom, *args):
-        return Function("STNumPoints", geom, *args)
+        return Function(f"{geom.get_sql()}.STNumPoints", *args)
 
-    def Perimeter(self, geom, *args):
-        return Function("STPerimeter", geom, *args)
+    def Overlaps(self, geomA, geomB, *args):
+        return Function(f"{geomA.get_sql()}.STOverlaps", geomB, *args)
 
-    def Point(self, long, lat, *args):
-        return Function("STPoint", long, lat, *args)
+    def Point(self, x, y, srid):
+        return Function(f"geography::Point", x, y, srid)
 
-    def SetSRID(self, geom, epsg, *args):
-        return Function("STSetSRID", geom, epsg, *args)
+    def PointN(self, geom, expression, *args):
+        return Function(f"{geom.get_sql()}.STPointN", expression, *args)
+    
+    def PointOnSurface(self, geom, *args):
+        return Function(f"{geom.get_sql()}.STPointOnSurface", *args)
+
+    def Relate(self, geomA, geomB, pattern, *args):
+        return Function(f"{geomA.get_sql()}.STRelate", geomB, pattern, *args)
+
+    def StartPoint(self, geom, *args):
+        return Function(f"{geom.get_sql()}.STStartPoint", *args)
+    
+    def SymDifference(self, geomA, geomB, *args):
+        return Function(f"{geomA.get_sql()}.STSymDifference", geomB, *args)
 
     def Touches(self, geomA, geomB, *args):
-        return Function("STTouches", geomA, geomB, *args)
+        return Function(f"{geomA.get_sql()}.STTouches", geomB, *args)
 
     def Union(self, geomA, geomB, *args):
-        return Function("STUnion", geomA, geomB, *args)
+        return Function(f"{geomA.get_sql()}.STUnion", geomB, *args)
 
     def Within(self, geomA, geomB, *args):
-        return Function("STWithin", geomA, geomB, *args)
+        return Function(f"{geomA.get_sql()}.STWithin", geomB, *args)
 
-    def X(self, term, *args):
-        return Function("STX", term, *args)
+    def X(self, geom):
+        return f"{geom.get_sql()}.STX"
 
-    def Y(self, term, *args):
-        return Function("STY", term, *args)
-
-    def Z(self, term, *args):
-        return Function("STZ", term, *args)
+    def Y(self, geom):
+        return f"{geom.get_sql()}.STY"
