@@ -1,6 +1,7 @@
 #
 # Dialects module
 #
+from pypika import Field
 from pypika.terms import Function
 
 
@@ -133,7 +134,10 @@ class SpatialMethods(object):
         return Function(f"{geomA.get_sql()}.STRelate", geomB, pattern, *args)
     
     def Srid(self, geom, *args):
-        return Function(f"{geom.get_sql()}.STSrid", *args)
+        if isinstance(geom, Field) and geom.table:
+            return Field(f"{geom.get_sql()}.STSrid", table=geom.table)
+        else:
+            return Field(f"{geom.get_sql()}.STSrid")
 
     def StartPoint(self, geom, *args):
         return Function(f"{geom.get_sql()}.STStartPoint", *args)
