@@ -131,6 +131,9 @@ class SpatialMethods(object):
 
     def Relate(self, geomA, geomB, pattern, *args):
         return Function(f"{geomA.get_sql()}.STRelate", geomB, pattern, *args)
+    
+    def Srid(self, geom, *args):
+        return Function(f"{geom.get_sql()}.STSrid", *args)
 
     def StartPoint(self, geom, *args):
         return Function(f"{geom.get_sql()}.STStartPoint", *args)

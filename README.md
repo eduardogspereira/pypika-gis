@@ -104,6 +104,7 @@ print(str(query))
 | PointOnSurface | `ST_PointOnSurface` | `STPointOnSurface` |
 | Relate | `ST_Relate` | `STRelate` |
 | SetSRID | `ST_SetSRID` | ❌ |
+| SRID | ❌ | `STSrid` |
 | StartPoint | `ST_StartPoint` | `STStartPoint` |
 | SymDifference | ❌ | `STSymDifference` |
 | Touches | `ST_Touches` | `STTouches` |
