@@ -133,11 +133,11 @@ class SpatialMethods(object):
     def Relate(self, geomA, geomB, pattern, *args):
         return Function(f"{geomA.get_sql()}.STRelate", geomB, pattern, *args)
     
-    def Srid(self, geom, *args):
-        if isinstance(geom, Field) and geom.table:
-            return Field(f"{geom.get_sql()}.STSrid", table=geom.table)
+    def Srid(self, geom, alias='srid'):
+        if isinstance(geom, Field):
+            return Field(geom.name + '.STSrid', table=geom.table, alias=alias)
         else:
-            return Field(f"{geom.get_sql()}.STSrid")
+            raise ValueError('Input geom must be Field.')
 
     def StartPoint(self, geom, *args):
         return Function(f"{geom.get_sql()}.STStartPoint", *args)
@@ -154,8 +154,14 @@ class SpatialMethods(object):
     def Within(self, geomA, geomB, *args):
         return Function(f"{geomA.get_sql()}.STWithin", geomB, *args)
 
-    def X(self, geom):
-        return f"{geom.get_sql()}.STX"
+    def X(self, geom, alias='x'):
+        if isinstance(geom, Field):
+            return Field(geom.name + '.STX', table=geom.table, alias=alias)
+        else:
+            raise ValueError('Input geom must be Field.')
 
-    def Y(self, geom):
-        return f"{geom.get_sql()}.STY"
+    def Y(self, geom, alias='y'):
+        if isinstance(geom, Field):
+            return Field(geom.name + '.STY', table=geom.table, alias=alias)
+        else:
+            raise ValueError('Input geom must be Field.')

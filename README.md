@@ -104,16 +104,17 @@ print(str(query))
 | PointOnSurface | `ST_PointOnSurface` | `STPointOnSurface` |
 | Relate | `ST_Relate` | `STRelate` |
 | SetSRID | `ST_SetSRID` | ❌ |
-| SRID | ❌ | `STSrid` |
+| SRID | ❌ | `STSrid`[^1] |
 | StartPoint | `ST_StartPoint` | `STStartPoint` |
 | SymDifference | ❌ | `STSymDifference` |
 | Touches | `ST_Touches` | `STTouches` |
 | Union | `ST_Union` | `STUnion` |
 | Within | `ST_Within` | `STWithin` |
-| X | `ST_X` | `STX` |
-| Y | `ST_Y` | `STY` |
+| X | `ST_X` | `STX`[^1] |
+| Y | `ST_Y` | `STY`[^1] |
 | Z | `ST_Z` | ❌ |
 
+[^1]: In MSSQL this is technically a method of the geography/geometry class, and returns a pypika `Field` instead of a `Function`.
 
 ## Development
 
