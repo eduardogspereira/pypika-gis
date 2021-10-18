@@ -1,6 +1,3 @@
-#
-# Dialects module
-#
 from pypika import Field
 from pypika.terms import Function
 

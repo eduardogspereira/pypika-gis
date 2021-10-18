@@ -1,6 +1,3 @@
-#
-# PostGIS submodule
-#
 from pypika.terms import Function
 
 

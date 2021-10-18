@@ -1,3 +1,0 @@
-#
-# PyPika gis
-#

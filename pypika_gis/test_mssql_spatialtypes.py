@@ -239,9 +239,9 @@ def test_Within():
 
 def test_X():
     query = st.X(table.geom)
-    assert (str(query)) == "geom.STX"
+    assert (str(query)) == '"geom.STX"'
 
 
 def test_Y():
     query = st.Y(table.geom)
-    assert (str(query)) == "geom.STY"
+    assert (str(query)) == '"geom.STY"'
