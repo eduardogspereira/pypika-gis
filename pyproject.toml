@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pypika-gis"
-version = "1.4.0"
+version = "2.0.0"
 description = "SpatialTypes functions for extend PyPika with GIS"
 readme = "README.md"
 keywords = ["pypika", "gis", "postgis", "sql", "builder"]
