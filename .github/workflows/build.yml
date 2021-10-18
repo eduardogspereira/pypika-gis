@@ -1,4 +1,4 @@
-name: pypika-gis-tests
+name: build
 
 on:
   push:

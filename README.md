@@ -4,7 +4,7 @@
 
 This library contains SpatialTypes functions for extending [PyPika](https://github.com/kayak/pypika) with GIS.
 
-![ci_badge](https://github.com/eduardogspereira/pypika-gis/actions/workflows/pypika-gis-tests.yml/badge.svg)
+![ci_badge](https://github.com/eduardogspereira/pypika-gis/actions/workflows/build.yml/badge.svg)
 
 ## Table of Contents
 

@@ -209,7 +209,7 @@ def test_PointOnSurface():
 
 def test_Relate():
     query = st.Relate(table.geomA, table.geomB, 'FF*FF****')
-    assert (str(query)) == 'geomA.STRelate("geomB","FF*FF****")'
+    assert (str(query)) == 'geomA.STRelate("geomB",\'FF*FF****\')'
 
 
 def test_StartPoint():
