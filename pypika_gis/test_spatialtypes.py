@@ -1,4 +1,4 @@
-import pypika_gis.spatialtypes as st
+from pypika_gis.spatialtypes import postgis as st
 
 
 def test_Area():
