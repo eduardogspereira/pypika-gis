@@ -139,7 +139,7 @@ print(str(query))
 ### Dependencies
 
 - [Python](https://www.python.org/downloads/)
-- [poetry](https://poetry.eustace.io/)
+- [poetry](https://python-poetry.org/)
 
 ### Setup
 
