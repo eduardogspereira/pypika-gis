@@ -1,22 +1,26 @@
-<img src="./.assets/map_icon.png" width="127px" height="127px" align="left"/>
+<img src="./.assets/map_icon.png"  width="156px" height="156px" align="left"/>
 
 # PyPika GIS
 
 This library contains SpatialTypes functions for extending [PyPika](https://github.com/kayak/pypika) with GIS.
 
+![ci_badge](https://github.com/eduardogspereira/pypika-gis/actions/workflows/pypika-gis-tests.yml/badge.svg)
+
 ## Table of Contents
 
-- [Install](#install)
-- [Examples](#examples)
-  - [PostGIS](#postgis)
-  - [MSSQL](#mssql)
-- [Available functions](#available-functions)
-- [Development](#development)
-  - [Dependencies](#dependencies)
-  - [Setup](#setup)
-  - [Tests](#tests)
-  - [Publish](#publish)
-- [Credits](#credits)
+- [PyPika GIS](#pypika-gis)
+  - [Table of Contents](#table-of-contents)
+  - [Install](#install)
+  - [Examples](#examples)
+    - [PostGIS](#postgis)
+    - [MSSQL](#mssql)
+  - [Available functions](#available-functions)
+  - [Development](#development)
+    - [Dependencies](#dependencies)
+    - [Setup](#setup)
+    - [Tests](#tests)
+    - [Publish](#publish)
+  - [Credits](#credits)
 
 ## Install
 
@@ -139,7 +143,7 @@ print(str(query))
 ### Dependencies
 
 - [Python](https://www.python.org/downloads/)
-- [poetry](https://poetry.eustace.io/)
+- [poetry](https://python-poetry.org/)
 
 ### Setup
 
