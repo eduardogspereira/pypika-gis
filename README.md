@@ -13,7 +13,7 @@ This library contains SpatialTypes functions for extending [PyPika](https://gith
   - [Install](#install)
   - [Examples](#examples)
     - [PostGIS](#postgis)
-    - [MSSQL](#mssql)
+    - [MSSQLSpatial](#mssqlspatial)
   - [Available functions](#available-functions)
   - [Development](#development)
     - [Dependencies](#dependencies)
@@ -33,20 +33,21 @@ pip install pypika-gis
 ### PostGIS
 
 ```python
-from pypika import Query
+from pypika import Query, Table
 from pypika_gis.spatialtypes import postgis as st
 
-query = Query.from_('field').select('id', st.AsGeoJSON('geom'))
+table = Table('table')
+query = Query.from_(table).select(table.id, st.AsGeoJSON(table.geom))
 print(str(query))
-# SELECT "id",ST_AsGeoJSON('geom') FROM "field"
+# SELECT "id",ST_AsGeoJSON('geom') FROM "table"
 
-query = Query.from_('crop').select('id').where(
-    st.Intersects('geom', st.SetSRID(st.MakePoint(10, 5), 4326)))
+query = Query.from_(table).select('id').where(
+    st.Intersects(table.geom, st.SetSRID(st.MakePoint(10, 5), 4326)))
 print(str(query))
-# SELECT "id" FROM "crop" WHERE ST_Intersects('geom',ST_SRID(ST_MakePoint(10,5),4326))
+# SELECT "id" FROM "table" WHERE ST_Intersects('geom',ST_SRID(ST_MakePoint(10,5),4326))
 ```
 
-### MSSQL
+### MSSQLSpatial
 
 ```python
 from pypika import Query, Table
@@ -65,7 +66,7 @@ print(str(query))
 
 ## Available functions
 
-|      pypika-gis      |          PostGIS          |        MSSQL        |
+|      pypika-gis      |          PostGIS          |    MSSQLSpatial     |
 | :------------------: | :-----------------------: | :-----------------: |
 |         Area         |         `ST_Area`         |      `STArea`       |
 |       AsBinary       |       `ST_AsBinary`       |    `STAsBinary`     |

@@ -36,8 +36,8 @@ def test_Centroid():
 
 
 def test_Contains():
-    query = st.Contains(table.geomA, "geomB")
-    assert (str(query)) == "geomA.STContains('geomB')"
+    query = st.Contains(table.geomA, table.geomB)
+    assert (str(query)) == 'geomA.STContains("geomB")'
 
 
 def test_ConvexHull():
@@ -46,8 +46,8 @@ def test_ConvexHull():
 
 
 def test_Crosses():
-    query = st.Crosses(table.geomA, "geomB")
-    assert (str(query)) == "geomA.STCrosses('geomB')"
+    query = st.Crosses(table.geomA, table.geomB)
+    assert (str(query)) == 'geomA.STCrosses("geomB")'
 
 
 def test_CurveN():
@@ -61,8 +61,8 @@ def test_CurveToLine():
 
 
 def test_Difference():
-    query = st.Difference(table.geomA, "geomB")
-    assert (str(query)) == "geomA.STDifference('geomB')"
+    query = st.Difference(table.geomA, table.geomB)
+    assert (str(query)) == 'geomA.STDifference("geomB")'
 
 
 def test_Dimension():
@@ -71,13 +71,13 @@ def test_Dimension():
 
 
 def test_Disjoint():
-    query = st.Disjoint(table.geomA, "geomB")
-    assert (str(query)) == "geomA.STDisjoint('geomB')"
+    query = st.Disjoint(table.geomA, table.geomB)
+    assert (str(query)) == 'geomA.STDisjoint("geomB")'
 
 
 def test_Distance():
-    query = st.Distance(table.geomA, "geomB")
-    assert (str(query)) == "geomA.STDistance('geomB')"
+    query = st.Distance(table.geomA, table.geomB)
+    assert (str(query)) == 'geomA.STDistance("geomB")'
 
 
 def test_EndPoint():
@@ -91,8 +91,8 @@ def test_Envelope():
 
 
 def test_Equals():
-    query = st.Equals(table.geomA, "geomB")
-    assert (str(query)) == "geomA.STEquals('geomB')"
+    query = st.Equals(table.geomA, table.geomB)
+    assert (str(query)) == 'geomA.STEquals("geomB")'
 
 
 def test_ExteriorRing():
@@ -128,13 +128,13 @@ def test_InteriorRingN():
 
 
 def test_Intersection():
-    query = st.Intersection(table.geomA, "geomB")
-    assert (str(query)) == "geomA.STIntersection('geomB')"
+    query = st.Intersection(table.geomA, table.geomB)
+    assert (str(query)) == 'geomA.STIntersection("geomB")'
 
 
 def test_Intersects():
-    query = st.Intersects(table.geomA, "geomB")
-    assert (str(query)) == "geomA.STIntersects('geomB')"
+    query = st.Intersects(table.geomA, table.geomB)
+    assert (str(query)) == 'geomA.STIntersects("geomB")'
 
 
 def test_IsClosed():
@@ -188,8 +188,8 @@ def test_NumPoints():
 
 
 def test_Overlaps():
-    query = st.Overlaps(table.geomA, "geomB")
-    assert (str(query)) == "geomA.STOverlaps('geomB')"
+    query = st.Overlaps(table.geomA, table.geomB)
+    assert (str(query)) == 'geomA.STOverlaps("geomB")'
 
 
 def test_Point():
@@ -208,8 +208,8 @@ def test_PointOnSurface():
 
 
 def test_Relate():
-    query = st.Relate(table.geomA, "geomB", 'FF*FF****')
-    assert (str(query)) == "geomA.STRelate('geomB','FF*FF****')"
+    query = st.Relate(table.geomA, table.geomB, 'FF*FF****')
+    assert (str(query)) == 'geomA.STRelate("geomB","FF*FF****")'
 
 
 def test_StartPoint():
@@ -218,23 +218,23 @@ def test_StartPoint():
 
 
 def test_SymDifference():
-    query = st.SymDifference(table.geomA, "geomB")
-    assert (str(query)) == "geomA.STSymDifference('geomB')"
+    query = st.SymDifference(table.geomA, table.geomB)
+    assert (str(query)) == 'geomA.STSymDifference("geomB")'
 
 
 def test_Touches():
-    query = st.Touches(table.geomA, "geomB")
-    assert (str(query)) == "geomA.STTouches('geomB')"
+    query = st.Touches(table.geomA, table.geomB)
+    assert (str(query)) == 'geomA.STTouches("geomB")'
 
 
 def test_Union():
-    query = st.Union(table.geomA, "geomB")
-    assert (str(query)) == "geomA.STUnion('geomB')"
+    query = st.Union(table.geomA, table.geomB)
+    assert (str(query)) == 'geomA.STUnion("geomB")'
 
 
 def test_Within():
-    query = st.Within(table.geomA, "geomB")
-    assert (str(query)) == "geomA.STWithin('geomB')"
+    query = st.Within(table.geomA, table.geomB)
+    assert (str(query)) == 'geomA.STWithin("geomB")'
 
 
 def test_X():
