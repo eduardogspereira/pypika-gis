@@ -1,5 +1,4 @@
 #
-# Dialects Submodule 
+# Dialects Submodule
 #
-from . import PostgreSQLSpatial
-from . import MSSQLSpatial
+from . import MSSQLSpatial, PostgreSQLSpatial

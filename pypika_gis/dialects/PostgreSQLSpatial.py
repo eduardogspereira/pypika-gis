@@ -8,7 +8,6 @@ class SpatialMethods(object):
     """
     Defines a PostGIS Spatial types/functions.
     """
-
     def Area(self, term, *args):
         return Function("ST_Area", term, *args)
 
@@ -47,13 +46,13 @@ class SpatialMethods(object):
 
     def Covers(self, geomA, geomB, *args):
         return Function("ST_Covers", geomA, geomB, *args)
-    
+
     def Crosses(self, geomA, geomB, *args):
         return Function("ST_Crosses", geomA, geomB, *args)
-    
+
     def CurveN(self, curve_index, *args):
         raise NotImplementedError('PostGIS has no ST_CurveN method')
-    
+
     def CurveToLine(self, geom, tolerance, *args):
         return Function("ST_CurveToLine", geom, tolerance, *args)
 
@@ -71,7 +70,7 @@ class SpatialMethods(object):
 
     def DWithin(self, geomA, geomB, distance, use_spheroid=False):
         return Function("ST_DWithin", geomA, geomB, distance, use_spheroid)
-    
+
     def EndPoint(self, geom, *args):
         return Function("ST_EndPoint", geom, *args)
 
@@ -89,7 +88,7 @@ class SpatialMethods(object):
 
     def GeoHash(self, term, *args):
         return Function("ST_GeoHash", term, *args)
-    
+
     def GeometryN(self, geom, integer, *args):
         return Function("ST_GeometryN", geom, integer, *args)
 
@@ -161,13 +160,13 @@ class SpatialMethods(object):
 
     def Point(self, long, lat, *args):
         return Function("ST_Point", long, lat, *args)
-    
+
     def PointN(self, geom, integer, *args):
         return Function("ST_PointN", geom, integer, *args)
 
     def PointOnSurface(self, geom, *args):
         return Function("ST_PointOnSurface", geom, *args)
-    
+
     def Relate(self, geomA, geomB, *args):
         return Function("ST_Relate", geomA, geomB, *args)
 

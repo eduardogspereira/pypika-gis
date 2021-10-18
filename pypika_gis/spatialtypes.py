@@ -1,8 +1,7 @@
 #
 # Spatialtypes module
 #
-from .dialects import (PostgreSQLSpatial,
-                       MSSQLSpatial)
+from .dialects import MSSQLSpatial, PostgreSQLSpatial
 
 postgis = PostgreSQLSpatial.SpatialMethods()
 

@@ -83,7 +83,8 @@ def test_GeogFromGeoJSON():
 
 def test_GeogFromText():
     query = st.GeogFromText("Polygon((0 0, 0 2, 2 2, 2 0, 0 0))")
-    assert (str(query)) == "ST_GeogFromText('Polygon((0 0, 0 2, 2 2, 2 0, 0 0))')"
+    assert (
+        str(query)) == "ST_GeogFromText('Polygon((0 0, 0 2, 2 2, 2 0, 0 0))')"
 
 
 def test_GeogFromWKB():
@@ -133,11 +134,10 @@ def test_MakeLine():
 
 def test_MakePolygon():
     query = st.MakePolygon(
-        "LINESTRING(75.15 29.53 1,77 29 1,77.6 29.5 1, 75.15 29.53 1)"
-    )
+        "LINESTRING(75.15 29.53 1,77 29 1,77.6 29.5 1, 75.15 29.53 1)")
     assert (
-        (str(query))
-        == "ST_MakePolygon('LINESTRING(75.15 29.53 1,77 29 1,77.6 29.5 1, 75.15 29.53 1)')"
+        (str(query)) ==
+        "ST_MakePolygon('LINESTRING(75.15 29.53 1,77 29 1,77.6 29.5 1, 75.15 29.53 1)')"
     )
 
 

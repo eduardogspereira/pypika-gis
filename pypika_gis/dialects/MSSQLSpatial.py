@@ -9,7 +9,6 @@ class SpatialMethods(object):
     """
     Defines an MS-SQL (a.k.a. SQL Server) Spatial types/functions
     """
-
     def Area(self, geom, *args):
         return Function(f"{geom.get_sql()}.STArea", *args)
 
@@ -33,13 +32,13 @@ class SpatialMethods(object):
 
     def ConvexHull(self, geom, *args):
         return Function(f"{geom.get_sql()}.STConvexHull", *args)
-    
+
     def Crosses(self, geomA, geomB, *args):
         return Function(f"{geomA.get_sql()}.STCrosses", geomB, *args)
 
     def CurveN(self, term, curve_index, *args):
         return Function(f"{term.get_sql()}.STCurveN", curve_index, *args)
-    
+
     def CurveToLine(self, term, *args):
         return Function(f"{term.get_sql()}.STCurveToLine", *args)
 
@@ -111,7 +110,7 @@ class SpatialMethods(object):
 
     def NumGeometries(self, geom, *args):
         return Function(f"{geom.get_sql()}.STNumGeometries", *args)
-    
+
     def NumInteriorRing(self, geom, *args):
         return Function(f"{geom.get_sql()}.STNumInteriorRing", *args)
 
@@ -126,13 +125,13 @@ class SpatialMethods(object):
 
     def PointN(self, geom, expression, *args):
         return Function(f"{geom.get_sql()}.STPointN", expression, *args)
-    
+
     def PointOnSurface(self, geom, *args):
         return Function(f"{geom.get_sql()}.STPointOnSurface", *args)
 
     def Relate(self, geomA, geomB, pattern, *args):
         return Function(f"{geomA.get_sql()}.STRelate", geomB, pattern, *args)
-    
+
     def Srid(self, geom, alias='srid'):
         if isinstance(geom, Field):
             return Field(geom.name + '.STSrid', table=geom.table, alias=alias)
@@ -141,7 +140,7 @@ class SpatialMethods(object):
 
     def StartPoint(self, geom, *args):
         return Function(f"{geom.get_sql()}.STStartPoint", *args)
-    
+
     def SymDifference(self, geomA, geomB, *args):
         return Function(f"{geomA.get_sql()}.STSymDifference", geomB, *args)
 
