@@ -100,16 +100,6 @@ def test_ExteriorRing():
     assert (str(query)) == "geom.STExteriorRing()"
 
 
-def test_GeometryN():
-    query = st.GeometryN(table.geom, 10)
-    assert (str(query)) == "geom.STGeometryN(10)"
-
-
-def test_GeometryType():
-    query = st.GeometryType(table.geom)
-    assert (str(query)) == "geom.STGeometryType()"
-
-
 def test_GeomFromText():
     query = st.GeomFromText("Polygon((0 0, 0 2, 2 2, 2 0, 0 0))", 1234)
     assert (
@@ -120,6 +110,16 @@ def test_GeomFromText():
 def test_GeomFromWKB():
     query = st.GeomFromWKB("{}", 1234)
     assert (str(query)) == "geometry::STGeomFromWKB('{}',1234)"
+
+
+def test_GeometryN():
+    query = st.GeometryN(table.geom, 10)
+    assert (str(query)) == "geom.STGeometryN(10)"
+
+
+def test_GeometryType():
+    query = st.GeometryType(table.geom)
+    assert (str(query)) == "geom.STGeometryType()"
 
 
 def test_InteriorRingN():

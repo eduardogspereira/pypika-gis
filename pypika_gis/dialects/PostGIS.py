@@ -29,14 +29,14 @@ class SpatialMethods(object):
     def Centroid(self, term, *args):
         return Function("ST_Centroid", term, *args)
 
+    def ClosestPoint(self, geomA, geomB, *args):
+        return Function("ST_ClosestPoint", geomA, geomB, *args)
+
     def Contains(self, geomA, geomB, *args):
         return Function("ST_Contains", geomA, geomB, *args)
 
     def ConvexHull(self, geomA, *args):
         return Function("ST_ConvexHull", geomA, *args)
-
-    def ClosestPoint(self, geomA, geomB, *args):
-        return Function("ST_ClosestPoint", geomA, geomB, *args)
 
     def CoveredBy(self, geomA, geomB, *args):
         return Function("ST_CoveredBy", geomA, geomB, *args)
@@ -47,11 +47,11 @@ class SpatialMethods(object):
     def Crosses(self, geomA, geomB, *args):
         return Function("ST_Crosses", geomA, geomB, *args)
 
-    def CurveN(self, curve_index, *args):
-        raise NotImplementedError('PostGIS has no ST_CurveN method')
-
     def CurveToLine(self, geom, tolerance, *args):
         return Function("ST_CurveToLine", geom, tolerance, *args)
+
+    def DWithin(self, geomA, geomB, distance, use_spheroid=False):
+        return Function("ST_DWithin", geomA, geomB, distance, use_spheroid)
 
     def Difference(self, geomA, geomB, *args):
         return Function("ST_Difference", geomA, geomB, *args)
@@ -64,9 +64,6 @@ class SpatialMethods(object):
 
     def Distance(self, geomA, geomB, *args):
         return Function("ST_Distance", geomA, geomB, *args)
-
-    def DWithin(self, geomA, geomB, distance, use_spheroid=False):
-        return Function("ST_DWithin", geomA, geomB, distance, use_spheroid)
 
     def EndPoint(self, geom, *args):
         return Function("ST_EndPoint", geom, *args)
@@ -86,12 +83,6 @@ class SpatialMethods(object):
     def GeoHash(self, term, *args):
         return Function("ST_GeoHash", term, *args)
 
-    def GeometryN(self, geom, integer, *args):
-        return Function("ST_GeometryN", geom, integer, *args)
-
-    def GeometryType(self, geom, *args):
-        return Function("ST_GeometryType", geom, *args)
-
     def GeogFromGeoJSON(self, term, *args):
         return Function("ST_GeogFromGeoJSON", term, *args)
 
@@ -110,8 +101,11 @@ class SpatialMethods(object):
     def GeomFromGeoJSON(self, term, *args):
         return Function("ST_GeomFromGeoJSON", term, *args)
 
-    def Length(self, geom, *args):
-        return Function("ST_Length", geom, *args)
+    def GeometryN(self, geom, integer, *args):
+        return Function("ST_GeometryN", geom, integer, *args)
+
+    def GeometryType(self, geom, *args):
+        return Function("ST_GeometryType", geom, *args)
 
     def InteriorRingN(self, geom, integer, *args):
         return Function("ST_InteriorRingN", geom, integer, *args)
@@ -139,6 +133,9 @@ class SpatialMethods(object):
 
     def IsValid(self, term, *args):
         return Function("ST_IsValid", term, *args)
+
+    def Length(self, geom, *args):
+        return Function("ST_Length", geom, *args)
 
     def MakeLine(self, *args):
         return Function("ST_MakeLine", *args)

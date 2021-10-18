@@ -63,17 +63,17 @@ class SpatialMethods(object):
     def ExteriorRing(self, geom, *args):
         return Function(f"{geom.get_sql()}.STExteriorRing", *args)
 
-    def GeometryN(self, geom, value, *args):
-        return Function(f"{geom.get_sql()}.STGeometryN", value, *args)
-
-    def GeometryType(self, geom, *args):
-        return Function(f"{geom.get_sql()}.STGeometryType", *args)
-
     def GeomFromText(self, text, srid, *args):
         return Function("geometry::STGeomFromText", text, srid, *args)
 
     def GeomFromWKB(self, wkb, srid, *args):
         return Function("geometry::STGeomFromWKB", wkb, srid, *args)
+
+    def GeometryN(self, geom, value, *args):
+        return Function(f"{geom.get_sql()}.STGeometryN", value, *args)
+
+    def GeometryType(self, geom, *args):
+        return Function(f"{geom.get_sql()}.STGeometryType", *args)
 
     def InteriorRingN(self, geom, value, *args):
         return Function(f"{geom.get_sql()}.STInteriorRingN", value, *args)
